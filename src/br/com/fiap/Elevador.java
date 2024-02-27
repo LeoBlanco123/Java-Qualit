@@ -44,8 +44,9 @@ public class Elevador {
 	
 	public double entrarNoElevador(double peso) {
 		Calculadora calc = new Calculadora();
-		return calc.somar(cargaAtual, peso);
-
+		double soma = calc.somar(cargaAtual, peso);
+		cargaAtual = cargaAtual + soma;
+		return cargaAtual;
 	}
 	
 	public double sairDoElevador(double peso) {
@@ -58,9 +59,9 @@ public class Elevador {
 	public boolean avaliarPeso(double peso) {
 		cargaAtual = peso;
 		if (cargaAtual > cargaMaxima) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		} 
 	}
 }
